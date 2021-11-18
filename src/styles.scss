@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@use '~@angular/material' as mat;
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@200;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+@include mat.core();
+
+$app-client-primary: mat.define-palette(mat.$indigo-palette);
+$app-client-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$app-client-warn: mat.define-palette(mat.$red-palette);
+
+$app-client-theme: mat.define-light-theme((
+  color: (
+    primary: $app-client-primary,
+    accent: $app-client-accent,
+    warn: $app-client-warn,
+  )
+));
+
+@include mat.all-component-themes($app-client-theme);
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif; 
+}
